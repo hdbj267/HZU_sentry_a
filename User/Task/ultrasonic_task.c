@@ -2,10 +2,10 @@
  * @Copyright(C),
  * @FileName:.c
  * @Author: HongYuJia 
- * @Teammate£º
+ * @Teammateï¼š
  * @Version: V3.0
  * @Date:2021.4.13
- * @Description:   ÈË»ú½»»¥OLEDÏÔÊ¾
+ * @Description:   é‡Œç¨‹è®¡è®¡ç®—ï¼Œåœ¨è½¦ä½“åæ ‡ç³»ä¸Šè®¡ç®—çš„
  * @Note:       
  * @Others: 
 **/
@@ -61,7 +61,7 @@ void ULTRASONIC_task(void *argument)
 		extern float yaw_yaw;
 		odometer_sign=0;
 		car.v[0] = ( cm1_msg.speed_rpm + cm2_msg.speed_rpm - cm3_msg.speed_rpm - cm4_msg.speed_rpm)/(60.0/(double)(2*PI))*cos(PI/4)*cos(PI/4)*7.625/19;
-		car.v[1] = (cm1_msg.speed_rpm - cm2_msg.speed_rpm - cm3_msg.speed_rpm + cm4_msg.speed_rpm)/(60.0/(double)(2*PI))*cos(PI/4)*cos(PI/4)*7.625/19;//60 rpm = 2PI rad/s, r = 15.25 cm, cos45 ÂóÂÖ½âËã
+		car.v[1] = (cm1_msg.speed_rpm - cm2_msg.speed_rpm - cm3_msg.speed_rpm + cm4_msg.speed_rpm)/(60.0/(double)(2*PI))*cos(PI/4)*cos(PI/4)*7.625/19;//60 rpm = 2PI rad/s, r = 15.25 cm, cos45 éº¦è½®è§£ç®—
 		car.distance[0] = (car.v[0]*cos(yaw_yaw*PI/180)+car.v[1]*sin(yaw_yaw*PI/180))*car_time;//2us, s = v*t, cm 0.000005	
 		car.distance[1] = (car.v[0]*sin(yaw_yaw*PI/180)+car.v[1]*cos(yaw_yaw*PI/180))*car_time;
 		position_a[0] =   position_a[0] + (car.distance[0]);

@@ -240,14 +240,14 @@ void HAL_UART_MspDeInit(UART_HandleTypeDef* uartHandle)
 
 void USAR_UART_IDLECallback(UART_HandleTypeDef *huart3)
 {
-//	if(__HAL_UART_GET_FLAG(huart3, UART_FLAG_IDLE)!=RESET)   //ÅĞ¶ÏÊÇ·ñÊÇ¿ÕÏĞÖĞ¶Ï
+//	if(__HAL_UART_GET_FLAG(huart3, UART_FLAG_IDLE)!=RESET)   //åˆ¤æ–­æ˜¯å¦æ˜¯ç©ºé—²ä¸­æ–­
 //    {
 //		__HAL_UART_CLEAR_IDLEFLAG(huart3);
-//		HAL_UART_DMAStop(huart3);                                        //Í£Ö¹±¾´ÎDMA´«Êä
-//		uint8_t data_length  = DMA_UsART3_SIZE - __HAL_DMA_GET_COUNTER(&hdma_usart3_tx);   //¼ÆËã½ÓÊÕµ½µÄÊı¾İ³¤¶È
+//		HAL_UART_DMAStop(huart3);                                        //åœæ­¢æœ¬æ¬¡DMAä¼ è¾“
+//		uint8_t data_length  = DMA_UsART3_SIZE - __HAL_DMA_GET_COUNTER(&hdma_usart3_tx);   //è®¡ç®—æ¥æ”¶åˆ°çš„æ•°æ®é•¿åº¦
 //		process_judge_message( usart3_rx_data );
-//		memset(usart3_rx_data,0,data_length);                                            //ÇåÁã½ÓÊÕ»º³åÇø
-//		HAL_UART_Receive_DMA(huart3, usart3_rx_data, DMA_UsART3_SIZE);                    //ÖØÆô¿ªÊ¼DMA´«Êä Ã¿´Î255×Ö½ÚÊı¾İ
+//		memset(usart3_rx_data,0,data_length);                                            //æ¸…é›¶æ¥æ”¶ç¼“å†²åŒº
+//		HAL_UART_Receive_DMA(huart3, usart3_rx_data, DMA_UsART3_SIZE);                    //é‡å¯å¼€å§‹DMAä¼ è¾“ æ¯æ¬¡255å­—èŠ‚æ•°æ®
 //	}
   
 } 

@@ -2,10 +2,10 @@
  * @Copyright(C),
  * @FileName:.c
  * @Author: HongYuJia 
- * @Teammate£º
+ * @Teammateï¼š
  * @Version: V3.0
  * @Date:2021.4.13
- * @Description:   ¹ØÓÚAC°åÖ®¼äµÄĞÅÏ¢½»»¥
+ * @Description:   å…³äºACæ¿ä¹‹é—´çš„ä¿¡æ¯äº¤äº’
  * @Note:       
  * @Others: 
 **/
@@ -28,7 +28,7 @@ connect_t connect_data;
 extern imu_t imu;
 
 /**
-  * @brief          can2½ÓÊÕrcÊı¾İ±£´æ
+  * @brief          can2æ¥æ”¶rcæ•°æ®ä¿å­˜
   * @author         
   * @param[in] 
   * @retval	
@@ -45,7 +45,7 @@ void connect_rc_ctrl_process(connect_t *connect_data, uint8_t aData[])
 	connect_data->can2_rc_ctrl.rc.ch2 -= RC_CHANNEL_VALUE_MIDDLE;
 	connect_data->can2_rc_ctrl.rc.ch3 -= RC_CHANNEL_VALUE_MIDDLE;
 	connect_data->can2_rc_ctrl.rc.ch2 = -connect_data->can2_rc_ctrl.rc.ch2;
-	connect_data->receive_rc_data_flag = 1;//±íÊ¾ÒÑ¾­½ÓÊÕµ½ÁËcan2µÄrcÊı¾İ
+	connect_data->receive_rc_data_flag = 1;//è¡¨ç¤ºå·²ç»æ¥æ”¶åˆ°äº†can2çš„rcæ•°æ®
 }
 
 typedef union float_char_
@@ -68,7 +68,7 @@ void connect_gyro_data_process(connect_t *connect_data, uint8_t aData[])
 	f_c.c[3] = aData[7];
 	connect_data->can2_rc_ctrl.gyro.yaw_fdb = f_c.f/10;
 	yaw_yaw = connect_data->can2_rc_ctrl.gyro.yaw_fdb;
-	connect_data->receive_rc_data_flag = 1;//±íÊ¾ÒÑ¾­½ÓÊÕµ½ÁËcan2µÄrcÊı¾İ
+	connect_data->receive_rc_data_flag = 1;//è¡¨ç¤ºå·²ç»æ¥æ”¶åˆ°äº†can2çš„rcæ•°æ®
 
 }
 
@@ -77,11 +77,11 @@ void connect_gyro_data_process(connect_t *connect_data, uint8_t aData[])
 
 
 /**
-  * @brief          Á¬½Ó³õÊ¼»¯
+  * @brief          è¿æ¥åˆå§‹åŒ–
   * @author         
   * @param[in] 
   * @retval	
-  * @note           ¿¼ÂÇÎ´Á¬½Ó ¹ÒÆğÈÎÎñµ÷¶ÈÆ÷ »ò½øÈëÁÙ½çÇø while(1)
+  * @note           è€ƒè™‘æœªè¿æ¥ æŒ‚èµ·ä»»åŠ¡è°ƒåº¦å™¨ æˆ–è¿›å…¥ä¸´ç•ŒåŒº while(1)
   */
 void connect_init(connect_t *connect_data) 
 {
@@ -126,7 +126,7 @@ void connect_cmd_data_process(connect_t *connect_data, uint8_t aData[])
 }
 
 /**
-  * @brief          Á¬½ÓÈÎÎñ
+  * @brief          è¿æ¥ä»»åŠ¡
   * @author         
   * @param[in] 
   * @retval	
@@ -141,7 +141,7 @@ void connect_task(void *argument)
 		send_shoot_17mm_data();
 		send_shoot_judge_data();
 		
-		if((rc_ctrl_data.rc.s1==1||rc_ctrl_data.rc.s1==3)&&rc_ctrl_data.rc.s2==2)//µ¼º½µ²²Å·¢ËÍÀï³Ì¼ÆÊı¾İ
+		if((rc_ctrl_data.rc.s1==1||rc_ctrl_data.rc.s1==3)&&rc_ctrl_data.rc.s2==2)//å¯¼èˆªæŒ¡æ‰å‘é€é‡Œç¨‹è®¡æ•°æ®
 		send_odem_data();
 		
 		vTaskDelay(10);

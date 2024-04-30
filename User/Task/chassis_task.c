@@ -2,10 +2,10 @@
  * @Copyright(C),
  * @FileName:.c
  * @Author: HongYuJia 
- * @Teammate£∫
+ * @TeammateÔºö
  * @Version: V3.0
  * @Date:2021.4.13
- * @Description:   πÿ”⁄µ◊≈Ãµƒøÿ÷∆
+ * @Description:   ÂÖ≥‰∫éÂ∫ïÁõòÁöÑÊéßÂà∂
  * @Note:       
  * @Others: 
 **/
@@ -111,7 +111,7 @@ int16_t RC_abs(int16_t value)
     }
 }
 /**
-  * @brief        	µ◊≈Ãpid≥ı ºªØ
+  * @brief        	Â∫ïÁõòpidÂàùÂßãÂåñ
   * @author         
   * @param[in]      
   * @retval			
@@ -134,7 +134,7 @@ void chassis_pid_init(pid_t *pid, cali_pid_t *cali_pid)
 
 
 /**
-  * @brief          µ◊≈Ã≥ı ºªØ
+  * @brief          Â∫ïÁõòÂàùÂßãÂåñ
   * @author         
   * @param[in]      
   * @retval			
@@ -157,11 +157,11 @@ void chassis_init(chassis_control_data_t *chassis, chassis_pid_t *chassis_pid)
 	chassis_pid_init(&chassis_pid->rotate_pid, &cali_chassis_pid.rotate_pid);
 }
 /**
-  * @brief        –°Õ”¬›œ¬µƒ‘À∂ØΩ‚À„ 
+  * @brief        Â∞èÈôÄËû∫‰∏ãÁöÑËøêÂä®Ëß£ÁÆó 
   * @author         
   * @param[in]      
   * @retval			
-  * @note        //«∞√Êª·≥ˆœ÷∏∫∫≈£¨ «“ÚŒ™6020 «∑¥œÚ∞≤◊∞µƒ£¨“≤ø…∏˘æ› µº µ˜ ‘µ√µΩ 
+  * @note        //ÂâçÈù¢‰ºöÂá∫Áé∞Ë¥üÂè∑ÔºåÊòØÂõ†‰∏∫6020ÊòØÂèçÂêëÂÆâË£ÖÁöÑÔºå‰πüÂèØÊ†πÊçÆÂÆûÈôÖË∞ÉËØïÂæóÂà∞ 
   */
 void rotate_motion_mode_process(chassis_control_data_t *chassis)
 {
@@ -174,7 +174,7 @@ void rotate_motion_mode_process(chassis_control_data_t *chassis)
 	{
 		chassis->rotate_motion.yaw_init_ecd = GAMBAL_YAW_INIT_ENCODE_VALUE_COMMON;
 	}
-	//µ√µΩ¥”÷–÷µ—ÿƒÊ ±’Î∑ΩœÚ0µΩ360∂»±‰ªØµƒΩ«∂»
+	//ÂæóÂà∞‰ªé‰∏≠ÂÄºÊ≤øÈÄÜÊó∂ÈíàÊñπÂêë0Âà∞360Â∫¶ÂèòÂåñÁöÑËßíÂ∫¶
 	if(chassis->rotate_motion.yaw_current_ecd <= chassis->rotate_motion.yaw_init_ecd)
 	{
 		chassis->rotate_motion.											   \
@@ -220,7 +220,7 @@ void rotate_motion_mode_process(chassis_control_data_t *chassis)
 	
 }
 /**
-  * @brief        ªÒ»°“∆∂Øøÿ÷∆¡ø
+  * @brief        Ëé∑ÂèñÁßªÂä®ÊéßÂà∂Èáè
   * @author         
   * @param[in]      
   * @retval			
@@ -280,23 +280,23 @@ void get_forward_back_value(chassis_control_data_t *chassis)
 		}
 		
 	}
-	else if(rc_ctrl_data.rc.s1==3&&rc_ctrl_data.rc.s2==2)  //–°Õ”¬›µº∫Ωµµ£¨∏≥÷µ∏¯’‚¡Ω∏ˆ±‰¡ø∏¯–°Õ”¬›Ω‚À„
+	else if(rc_ctrl_data.rc.s1==3&&rc_ctrl_data.rc.s2==2)  //Â∞èÈôÄËû∫ÂØºËà™Ê°£ÔºåËµãÂÄºÁªôËøô‰∏§‰∏™ÂèòÈáèÁªôÂ∞èÈôÄËû∫Ëß£ÁÆó
 	{
 		chassis->forward_back = -(chassis->connect->forward_speed)*100.0;
 		chassis->left_right   = (chassis->connect->zuoyou_speed)*100.0;
 	}	
-	else if(rc_ctrl_data.rc.s1==1&&rc_ctrl_data.rc.s2==2)  //∆’Õ®µº∫Ωµµ
+	else if(rc_ctrl_data.rc.s1==1&&rc_ctrl_data.rc.s2==2)  //ÊôÆÈÄöÂØºËà™Ê°£
 	{
 		cmd_forward_pid.set = -(chassis->connect->forward_speed)*100.0;
 		cmd_zuoyou_pid.set = (chassis->connect->zuoyou_speed)*100.0;
 	}	
 }
 /**
-  * @brief         ªÒ»°µ◊≈Ã–˝◊™÷µ  ‘∆Ã®–˝◊™ƒÊ ±’Î±‡¬Î÷µ±‰¥Û  ◊Û5000 ”“3000
+  * @brief         Ëé∑ÂèñÂ∫ïÁõòÊóãËΩ¨ÂÄº  ‰∫ëÂè∞ÊóãËΩ¨ÈÄÜÊó∂ÈíàÁºñÁ†ÅÂÄºÂèòÂ§ß  Â∑¶5000 Âè≥3000
   * @author         
   * @param[in]      
   * @retval			
-  * @note          µ◊≈Ã∏˙ÀÊpidƒø«∞≤ªŒ»∂® ø…ƒ‹ƒ≥–©¡øµƒ◊™ªªπ˝≥Ã÷–∑ΩœÚ”–¥ÌŒÛ
+  * @note          Â∫ïÁõòË∑üÈöèpidÁõÆÂâç‰∏çÁ®≥ÂÆö ÂèØËÉΩÊüê‰∫õÈáèÁöÑËΩ¨Êç¢ËøáÁ®ã‰∏≠ÊñπÂêëÊúâÈîôËØØ
   */
 float rotate_abs(float val)
 {
@@ -313,7 +313,7 @@ int16_t yaw_raw,delta_yaw=2000,ROTATE_BASE_SPEED=420,rotate_tend=1,rotate_num;
 void get_rotate_value(chassis_control_data_t *chassis, chassis_pid_t *chassis_pid)
 {
 	yaw_raw1 = chassis->yaw_motor_msg->encoder.raw_value;
-	if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_COMMON_MODE)	//	µ◊≈Ã∏˙ÀÊpid
+	if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_COMMON_MODE)	//	Â∫ïÁõòË∑üÈöèpid
 	{
 		if(chassis->chassis_control_mode_flag)
 		{
@@ -332,11 +332,11 @@ void get_rotate_value(chassis_control_data_t *chassis, chassis_pid_t *chassis_pi
 //								    -chassis->connect->can2_rc_ctrl.gyro.yaw_fdb) * GAMBAL_YAW_angle_VALUE;
 		chassis_pid->rotate_pid.Calc(&chassis_pid->rotate_pid);
 		
-		chassis->rotate = chassis_pid->rotate_pid.output;//”…∏∫–ﬁ∏ƒŒ™’˝   6.25
+		chassis->rotate = chassis_pid->rotate_pid.output;//Áî±Ë¥ü‰øÆÊîπ‰∏∫Ê≠£   6.25
 		//chassis->rotate_buff_flag = 0;
 
 	}
-	else if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_ROTATE_MOTION_MODE)   //±‰ÀŸ‘À∂Ø–°Õ”¬›    
+	else if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_ROTATE_MOTION_MODE)   //ÂèòÈÄüËøêÂä®Â∞èÈôÄËû∫    
 	{
 		
 if(RC_abs(chassis->yaw_motor_msg->encoder.raw_value - yaw_raw)>delta_yaw)
@@ -353,9 +353,9 @@ if(RC_abs(chassis->yaw_motor_msg->encoder.raw_value - yaw_raw)>delta_yaw)
 				}
 				
 	}
-else if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_ROTATE_STOP_MODE)	//æ≤÷π–°Õ”¬›
+else if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_ROTATE_STOP_MODE)	//ÈùôÊ≠¢Â∞èÈôÄËû∫
 	{
-		rotate_num++;		//∂® ±ªª–˝◊™∑ΩœÚ
+		rotate_num++;		//ÂÆöÊó∂Êç¢ÊóãËΩ¨ÊñπÂêë
 		if(rotate_num>20000)
 		{
 		rotate_tend=-rotate_tend;
@@ -385,7 +385,7 @@ uint8_t action_flag,sentry_mode,sentry_work_mode,move_speed=200;
 
 
 /**
-  * @brief        ∏¸–¬µ◊≈ÃµÁª˙…Ë∂®÷µ∫Õ∑¥¿°÷µ
+  * @brief        Êõ¥Êñ∞Â∫ïÁõòÁîµÊú∫ËÆæÂÆöÂÄºÂíåÂèçÈ¶àÂÄº
   * @author         
   * @param[in]      
   * @retval			
@@ -407,7 +407,7 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 		case ROBOT_INIT_MODE:
 		case ROBOT_INIT_END_MODE:
 		{
-			chassis->forward_back = 0; //ƒ£ Ω◊™ªª ±«Â¡„
+			chassis->forward_back = 0; //Ê®°ÂºèËΩ¨Êç¢Êó∂Ê∏ÖÈõ∂
 			chassis->left_right = 0;
 			chassis->rotate = 0;
 
@@ -415,15 +415,15 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 			chassis->left_right_set = 0;
 			chassis->rotate_set = 0;
 		}break;
-		case ROBOT_COMMON_MODE: //∆’Õ®µ◊≈Ã∏˙ÀÊƒ£ Ω
+		case ROBOT_COMMON_MODE: //ÊôÆÈÄöÂ∫ïÁõòË∑üÈöèÊ®°Âºè
 		{
 
 			get_forward_back_value(chassis);
 			get_rotate_value(chassis, chassis_pid);
 			
 			
-				if((game_status.game_progress==3)||(game_status.game_progress==4)||(game_status.game_progress==5))/*±»»¸ø™ ºæÕœÚ◊Û◊ﬂ£¨
-																																								◊Ó∫√º”“ª∏ˆ◊ﬂÕÍø™…®√Ëµµ£¨≤ª”√µƒª∞º«µ√…æ¡À*/
+				if((game_status.game_progress==3)||(game_status.game_progress==4)||(game_status.game_progress==5))/*ÊØîËµõÂºÄÂßãÂ∞±ÂêëÂ∑¶Ëµ∞Ôºå
+																																								ÊúÄÂ•ΩÂä†‰∏Ä‰∏™Ëµ∞ÂÆåÂºÄÊâ´ÊèèÊ°£Ôºå‰∏çÁî®ÁöÑËØùËÆ∞ÂæóÂà†‰∫Ü*/
 	{
 		switch(left_move)
 		{
@@ -443,7 +443,7 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 	}
 	//if((game_status.game_progress==3)||(game_status.game_progress==4)||(game_status.game_progress==5))
 	//{
-		//	switch(sentry_mode)			//“≤ø…“‘”√’‚÷÷∑Ω∑®£¨¿˚”√¿Ô≥Ãº∆º”◊¥Ã¨ª˙¿¥◊ﬂµΩƒ≥∏ˆµÿ∑Ω
+		//	switch(sentry_mode)			//‰πüÂèØ‰ª•Áî®ËøôÁßçÊñπÊ≥ïÔºåÂà©Áî®ÈáåÁ®ãËÆ°Âä†Áä∂ÊÄÅÊú∫Êù•Ëµ∞Âà∞Êüê‰∏™Âú∞Êñπ
 	//{
 //	case 0:
 //		if(action_flag==1)
@@ -452,24 +452,24 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 //		sentry_mode=1;
 //	}break;
 //	case 1:
-//	if(car.position_b[0]>=-1*1)//«∞2∏Ò
+//	if(car.position_b[0]>=-1*1)//Ââç2Ê†º
 //		chassis->left_right = -move_speed;
 //	else
 //		sentry_mode=2;
 //	break;
 //	case 2:
-//	if(car.position_b[1]>=-1*3)//”“4∏Ò
+//	if(car.position_b[1]>=-1*3)//Âè≥4Ê†º
 //		chassis->forward_back = move_speed;
 //	else
 //		sentry_mode=3;
 //	break;
 //	case 3:
-//	if(car.position_b[0]>=-1*1)//«∞2∏Ò
+//	if(car.position_b[0]>=-1*1)//Ââç2Ê†º
 //		chassis->left_right = -move_speed;
 //	else
 //		sentry_mode=04;
 //	case 4:
-//	if(car.position_b[1]<=0)//◊Û4∏Ò
+//	if(car.position_b[1]<=0)//Â∑¶4Ê†º
 //		chassis->forward_back = -move_speed;
 //	else
 //		sentry_mode=05;
@@ -486,26 +486,26 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 			chassis->left_right_set = chassis->left_right;
 			chassis->rotate_set = chassis->rotate;
 		}break;
-		case ROBOT_ROTATE_MOTION_MODE: //‘À∂Ø–°Õ”¬›ƒ£ Ω
+		case ROBOT_ROTATE_MOTION_MODE: //ËøêÂä®Â∞èÈôÄËû∫Ê®°Âºè
 		{
-			if(rc_ctrl_data.rc.s1==3&&rc_ctrl_data.rc.s2==2)	//∆’Õ®µº∫Ωµµ£¨≤ªªÒ»°–˝◊™÷µ£¨º¥µ◊≈Ã≤ª∏˙ÀÊ‘∆Ã®
+			if(rc_ctrl_data.rc.s1==3&&rc_ctrl_data.rc.s2==2)	//ÊôÆÈÄöÂØºËà™Ê°£Ôºå‰∏çËé∑ÂèñÊóãËΩ¨ÂÄºÔºåÂç≥Â∫ïÁõò‰∏çË∑üÈöè‰∫ëÂè∞
 			{
 			get_forward_back_value(chassis);
 			}
 			else
 			{
-			get_forward_back_value(chassis);//ªÒ»°øÿ÷∆÷µ£¨‘Ÿ π”√œ¬√Ê∫Ø ˝◊ˆ◊™ªª
-			rotate_motion_mode_process(chassis);//‘À∂Ø–°Õ”¬›Ω‚À„
+			get_forward_back_value(chassis);//Ëé∑ÂèñÊéßÂà∂ÂÄºÔºåÂÜç‰ΩøÁî®‰∏ãÈù¢ÂáΩÊï∞ÂÅöËΩ¨Êç¢
+			rotate_motion_mode_process(chassis);//ËøêÂä®Â∞èÈôÄËû∫Ëß£ÁÆó
 			get_rotate_value(chassis, chassis_pid);
 			}
 			
 		}break;
-		case ROBOT_ROTATE_STOP_MODE: //æ≤÷π∏ﬂÀŸ–°Õ”¬›ƒ£ Ω
+		case ROBOT_ROTATE_STOP_MODE: //ÈùôÊ≠¢È´òÈÄüÂ∞èÈôÄËû∫Ê®°Âºè
 		{
-			if(rc_ctrl_data.rc.s1==1&&rc_ctrl_data.rc.s2==2)	//–°Õ”¬›—≤∫Ωµµ£¨Ω¯–––°Õ”¬›Ω‚À„£¨µ´≤ªªÒ»°–˝◊™÷µ
+			if(rc_ctrl_data.rc.s1==1&&rc_ctrl_data.rc.s2==2)	//Â∞èÈôÄËû∫Â∑°Ëà™Ê°£ÔºåËøõË°åÂ∞èÈôÄËû∫Ëß£ÁÆóÔºå‰ΩÜ‰∏çËé∑ÂèñÊóãËΩ¨ÂÄº
 			{
 			get_forward_back_value(chassis);
-			rotate_motion_mode_process(chassis);//‘À∂Ø–°Õ”¬›Ω‚À„
+			rotate_motion_mode_process(chassis);//ËøêÂä®Â∞èÈôÄËû∫Ëß£ÁÆó
 			}
 			else
 			{
@@ -529,13 +529,13 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 	}
 	
 #if 0
-	chassis->rotate_set = 0; //µ•∂¿µ˜ ‘ π”√ ≤ª–Ë“™–˝◊™¡ø
+	chassis->rotate_set = 0; //ÂçïÁã¨Ë∞ÉËØï‰ΩøÁî® ‰∏çÈúÄË¶ÅÊóãËΩ¨Èáè
 #endif	
 	
 
 
 
-  if((rc_ctrl_data.rc.s1==1||rc_ctrl_data.rc.s1==3)&&rc_ctrl_data.rc.s2==2)//µº∫Ωµµ≤≈÷¥––µº∫Ω ˝æ›
+  if((rc_ctrl_data.rc.s1==1||rc_ctrl_data.rc.s1==3)&&rc_ctrl_data.rc.s2==2)//ÂØºËà™Ê°£ÊâçÊâßË°åÂØºËà™Êï∞ÊçÆ
 	{
 		cmd_forward_pid.fdb = -car.v[0];
 		PID_Calc(&cmd_forward_pid);
@@ -560,7 +560,7 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 	chassis->cm2_fdb = chassis->cm2_msg->encoder.filter_rate;
 	chassis->cm3_fdb = chassis->cm3_msg->encoder.filter_rate;
 	chassis->cm4_fdb = chassis->cm4_msg->encoder.filter_rate;
-	//¬Ãµ∆
+	//ÁªøÁÅØ
 	if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_INIT_MODE)
 	{
 		HAL_GPIO_WritePin(LED_G_GPIO_Port,LED_G_Pin,GPIO_PIN_RESET);
@@ -663,13 +663,13 @@ void chassis_task(void *argument)
 	
 	while(1)
 	{
-		current_time = xTaskGetTickCount();                         //µ±«∞œµÕ≥ ±º‰       *hyj
+		current_time = xTaskGetTickCount();                         //ÂΩìÂâçÁ≥ªÁªüÊó∂Èó¥       *hyj
 		chassis_set_and_fdb_update(&chassis_control_data, &chassis_pid);
 		srand(xTaskGetTickCount());
 		chassis_pid_calculate(&chassis_control_data, &chassis_pid);
 		chassis_forwardfeed(&chassis_control_data);
 		chassis_control_loop(&chassis_control_data, &chassis_pid);
-		vTaskDelayUntil(&current_time, 1);       //1ms“ª¥Œ         *hyj
+		vTaskDelayUntil(&current_time, 1);       //1ms‰∏ÄÊ¨°         *hyj
 	}
 }
 

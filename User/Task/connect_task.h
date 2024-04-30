@@ -10,7 +10,7 @@
 #define RC_CHANNEL_VALUE_MIDDLE         (1024u) 
 #define RC_CHANNEL_VALUE_MIN            (364u) 
 
-typedef struct   //can2´«ÊäµÄrcÊı¾İ
+typedef struct   //can2ä¼ è¾“çš„rcæ•°æ®
 {
 	uint8_t control_mode;
 	uint8_t work_mode;
@@ -31,7 +31,7 @@ typedef struct   //can2´«ÊäµÄrcÊı¾İ
 
 }can2_rc_ctrl_t;
 
-//typedef struct //can2´«ÊäµÄĞÅÏ¢Êı¾İ
+//typedef struct //can2ä¼ è¾“çš„ä¿¡æ¯æ•°æ®
 //{
 
 //}can2_info_t;

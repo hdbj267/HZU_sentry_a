@@ -2,12 +2,12 @@
  * @Copyright(C),
  * @FileName:.c
  * @Author: HongYuJia 
- * @Teammate£º
+ * @Teammateï¼š
  * @Version: V3.0
  * @Date:2021.4.13
- * @Description:   Ô­±¾Îª²âÊÔÈÎÎñ£¬ÓÃÓÚ¼à¿Ø»úÆ÷ÈËÔËĞĞ×´Ì¬¡£
- * 					ºóÆÚÓÃÓÚÏÔÊ¾¿Í»§¶Ë½çÃæ×Ô¶¨ÒåĞÅÏ¢£¬Î´ÍêÉÆºÃ£¬
- * 					ĞèÒªµ÷ÊÔ£¬°´ÕÕĞÂ²ÃÅĞÏµÍ³Ğ­ÒéÀ´¸ã£¬ÓĞ¿ªÔ´´úÂë¹©²Î¿¼£¡¼ÓÓÍ£¡
+ * @Description:   åŸæœ¬ä¸ºæµ‹è¯•ä»»åŠ¡ï¼Œç”¨äºç›‘æ§æœºå™¨äººè¿è¡ŒçŠ¶æ€ã€‚
+ * 					åæœŸç”¨äºæ˜¾ç¤ºå®¢æˆ·ç«¯ç•Œé¢è‡ªå®šä¹‰ä¿¡æ¯ï¼Œæœªå®Œå–„å¥½ï¼Œ
+ * 					éœ€è¦è°ƒè¯•ï¼ŒæŒ‰ç…§æ–°è£åˆ¤ç³»ç»Ÿåè®®æ¥æï¼Œæœ‰å¼€æºä»£ç ä¾›å‚è€ƒï¼åŠ æ²¹ï¼
  * @Note:       
  * @Others: 
 **/
@@ -45,7 +45,7 @@ void Clear_Usart_Receive(void)
 }
 
 /**
-  * @brief  Í¨¹ı×Ô¼ºµÄID£¬·µ»Ø¶ÔÓ¦²Ù×÷ÊÖ¿Í»§¶ËID
+  * @brief  é€šè¿‡è‡ªå·±çš„IDï¼Œè¿”å›å¯¹åº”æ“ä½œæ‰‹å®¢æˆ·ç«¯ID
   * @param  void
   * @retval 
   * @attention  
@@ -53,18 +53,18 @@ void Clear_Usart_Receive(void)
 int Operator_ID(void)
 {
 	uint8_t Operator_id;
-	if(robot_status.robot_id < 10)        //ºì·½
+	if(robot_status.robot_id < 10)        //çº¢æ–¹
 	{
 		Operator_id = robot_status.robot_id + 0x0100 ;
 	}
-	else if (robot_status.robot_id > 10)  //À¶·½
+	else if (robot_status.robot_id > 10)  //è“æ–¹
 	{
 		Operator_id = robot_status.robot_id + 0x0064 ;
 	}
 	return Operator_id;
 }
 /**
-  * @brief  ÔÚ¿Í»§¶ËÏÔÊ¾¸¡µãÊı
+  * @brief  åœ¨å®¢æˆ·ç«¯æ˜¾ç¤ºæµ®ç‚¹æ•°
   * @param  void
   * @retval 
   * @attention  
@@ -88,7 +88,7 @@ void Display_float(graphic_data_struct_t *configure, float num)
 }
 
 /**
-  * @brief  ÔÚ¿Í»§¶ËÏÔÊ¾ÕûĞÎÊı
+  * @brief  åœ¨å®¢æˆ·ç«¯æ˜¾ç¤ºæ•´å½¢æ•°
   * @param  void
   * @retval 
   * @attention  
@@ -112,7 +112,7 @@ void Display_int(graphic_data_struct_t *configure, int32_t num)
 }
 
 /**
-  * @brief  ÔÚ¿Í»§¶ËÏÔÊ¾×Ö·û
+  * @brief  åœ¨å®¢æˆ·ç«¯æ˜¾ç¤ºå­—ç¬¦
   * @param  void
   * @retval 
   * @attention  
@@ -123,46 +123,46 @@ void Display_char(void)
 }
 
 /**
-  * @brief  ÉÏ´«×Ô¶¨ÒåÊı¾İ
+  * @brief  ä¸Šä¼ è‡ªå®šä¹‰æ•°æ®
   * @param  void
   * @retval void    
-  * @attention    Êı¾İ´ò°ü,´ò°üÍê³ÉºóÍ¨¹ı´®¿Ú·¢ËÍµ½²ÃÅĞÏµÍ³       *hyj
-  *          ´Ëº¯Êı¿É½«Êı¾İ´«ËÍµ½²Ù×÷ÊÖ½çÃæÏÔÊ¾£¨Î´µ÷ÓÃ£¬¿ªÑ§µ÷ÊÔÊ±£¬¿´ĞèÇó£¡£©
+  * @attention    æ•°æ®æ‰“åŒ…,æ‰“åŒ…å®Œæˆåé€šè¿‡ä¸²å£å‘é€åˆ°è£åˆ¤ç³»ç»Ÿ       *hyj
+  *          æ­¤å‡½æ•°å¯å°†æ•°æ®ä¼ é€åˆ°æ“ä½œæ‰‹ç•Œé¢æ˜¾ç¤ºï¼ˆæœªè°ƒç”¨ï¼Œå¼€å­¦è°ƒè¯•æ—¶ï¼Œçœ‹éœ€æ±‚ï¼ï¼‰
   */
 uint8_t CliendTxBuffer[SEND_MAX_LEN];
-ext_Send_User_Data_t      ShowData;			//¿Í»§¶ËĞÅÏ¢
+ext_Send_User_Data_t      ShowData;			//å®¢æˆ·ç«¯ä¿¡æ¯
 void Show_User_Data(void)
 {	
 	ShowData.txFrameHeader.SOF = 0xA5;
 	ShowData.txFrameHeader.data_length = sizeof(ext_student_interactive_header_data_t) + sizeof(ext_client_custom_graphic_single_t);       //client_custom_data_t
 	ShowData.txFrameHeader.seq = 0;
-	memcpy(CliendTxBuffer, &ShowData.txFrameHeader, sizeof(frame_header_t));//Ğ´ÈëÖ¡Í·Êı¾İ
-	Append_CRC8_Check_Sum(CliendTxBuffer, sizeof(frame_header_t));//Ğ´ÈëÖ¡Í·CRC8Ğ£ÑéÂë
+	memcpy(CliendTxBuffer, &ShowData.txFrameHeader, sizeof(frame_header_t));//å†™å…¥å¸§å¤´æ•°æ®
+	Append_CRC8_Check_Sum(CliendTxBuffer, sizeof(frame_header_t));//å†™å…¥å¸§å¤´CRC8æ ¡éªŒç 
 	
 	ShowData.CmdID = ROBOT_COMMUNICATION_ID;
 	
-	ShowData.dataFrameHeader.data_cmd_id = 0x0101;//Êı¾İ¶ÎÄÚÈİµÄID
-	ShowData.dataFrameHeader.send_ID 	 = robot_status.robot_id ;//·¢ËÍÕßµÄID
-	ShowData.dataFrameHeader.receiver_ID = Operator_ID();//¿Í»§¶ËµÄID£¬Ö»ÄÜÎª·¢ËÍÕß»úÆ÷ÈË¶ÔÓ¦µÄ¿Í»§¶Ë
+	ShowData.dataFrameHeader.data_cmd_id = 0x0101;//æ•°æ®æ®µå†…å®¹çš„ID
+	ShowData.dataFrameHeader.send_ID 	 = robot_status.robot_id ;//å‘é€è€…çš„ID
+	ShowData.dataFrameHeader.receiver_ID = Operator_ID();//å®¢æˆ·ç«¯çš„IDï¼Œåªèƒ½ä¸ºå‘é€è€…æœºå™¨äººå¯¹åº”çš„å®¢æˆ·ç«¯
 	
-	/*- ×Ô¶¨ÒåÄÚÈİ -******ÔİÊ±µÄ£¬¿ªÑ§µ÷ÊÔ¿´ĞèÒªÊ²Ã´ *hyj */
+	/*- è‡ªå®šä¹‰å†…å®¹ -******æš‚æ—¶çš„ï¼Œå¼€å­¦è°ƒè¯•çœ‹éœ€è¦ä»€ä¹ˆ *hyj */
 	// ShowData.clientData.data1 = 11.11;
 	// ShowData.clientData.data2 = 22.22;
 	// ShowData.clientData.data3 = 33.33;
 	// ShowData.clientData.data4 = 44;
 	Display_int(&ShowData.clientData.grapic_data_struct,111);
 	/*--------------*/
-	//´ò°üĞ´ÈëÊı¾İ¶Î
+	//æ‰“åŒ…å†™å…¥æ•°æ®æ®µ
 	memcpy(	
 			CliendTxBuffer + 5, 
 			(uint8_t*)&ShowData.CmdID, 
 			(sizeof(ShowData.CmdID)+ sizeof(ShowData.dataFrameHeader)+ sizeof(ShowData.clientData))
 		  );			
 			
-	Append_CRC16_Check_Sum(CliendTxBuffer,sizeof(ShowData));//Ğ´ÈëÊı¾İ¶ÎCRC16Ö¡Î²Ğ£ÑéÂë	
+	Append_CRC16_Check_Sum(CliendTxBuffer,sizeof(ShowData));//å†™å…¥æ•°æ®æ®µCRC16å¸§å°¾æ ¡éªŒç 	
 
 	// HAL_UART_Transmit_IT(&huart3 ,(uint8_t*)CliendTxBuffer,sizeof(CliendTxBuffer));
-	HAL_UART_Transmit(&huart3, CliendTxBuffer, sizeof(CliendTxBuffer), 1000);      //·¢Êı¾İ  
+	HAL_UART_Transmit(&huart3, CliendTxBuffer, sizeof(CliendTxBuffer), 1000);      //å‘æ•°æ®  
 }
 
 
@@ -172,7 +172,7 @@ void test_task(void *argument)
     {
 					vTaskDelay(1);
 		//Show_User_Data();
-		//vTaskDelay(TRANSMIT_SHOW_DATA_TIME);       //35msÒ»´Î
+		//vTaskDelay(TRANSMIT_SHOW_DATA_TIME);       //35msä¸€æ¬¡
 					if(Usart_Receive[Usart_Cnt-2]=='\r'&&Usart_Receive[Usart_Cnt-1]=='\n')
 {
 						//delay_ms(100);

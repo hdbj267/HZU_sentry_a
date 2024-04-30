@@ -2,10 +2,10 @@
  * @Copyright(C),
  * @FileName:.c
  * @Author: HongYuJia 
- * @Teammate£º
+ * @Teammateï¼š
  * @Version: V3.0
  * @Date:2021.4.13
- * @Description:   ¿ªÊ¼ÈÎÎñ£¬ËùÓĞÏß³ÌÓÉËü´´½¨£¬ÓÃÍê¾ÍĞİÃß
+ * @Description:   å¼€å§‹ä»»åŠ¡ï¼Œæ‰€æœ‰çº¿ç¨‹ç”±å®ƒåˆ›å»ºï¼Œç”¨å®Œå°±ä¼‘çœ 
  * @Note:       
  * @Others: 
 **/
@@ -21,7 +21,7 @@
 #include "connect_task.h"
 #include "ULTRASONIC_task.h"
 
-//ĞèÒªµÄÕ»´óĞ¡¼ÆËã·½·¨£ºĞèÒªµÄÕ»Öµ (stack_size*4) = µ±Ç°¸øµÄ(stack_size *4) - Õ»µÄÀúÊ·Ê£ÓàÖµ*4 
+//éœ€è¦çš„æ ˆå¤§å°è®¡ç®—æ–¹æ³•ï¼šéœ€è¦çš„æ ˆå€¼ (stack_size*4) = å½“å‰ç»™çš„(stack_size *4) - æ ˆçš„å†å²å‰©ä½™å€¼*4 
 osThreadId_t chassis_task_Handler;
 const osThreadAttr_t chassis_task_attr = {
   .name = "chassis_task",
@@ -64,7 +64,7 @@ void INS_task(void *argument);
 
 void start_task(void *argument)
 {
-  /* Ëø×¡RTOSÄÚºË·ÀÖ¹Êı¾İ½âÎö¹ı³ÌÖĞ¶Ï£¬Ôì³É´íÎó */
+  /* é”ä½RTOSå†…æ ¸é˜²æ­¢æ•°æ®è§£æè¿‡ç¨‹ä¸­æ–­ï¼Œé€ æˆé”™è¯¯ */
   osKernelLock();
 	//create gimbal_task	
   chassis_task_Handler = osThreadNew(chassis_task, NULL, &chassis_task_attr);
@@ -76,8 +76,8 @@ void start_task(void *argument)
 	test_task_Handler = osThreadNew(test_task, NULL, &test_task_attr);
 	//creat ins_task
 	INS_task_Handler = osThreadNew(INS_task, NULL, &INS_task_attr);
-  //½âËø
+  //è§£é”
   osKernelUnlock();
 
-  osThreadTerminate(osThreadGetId()); /* ½áÊø×ÔÉí */
+  osThreadTerminate(osThreadGetId()); /* ç»“æŸè‡ªèº« */
 }
