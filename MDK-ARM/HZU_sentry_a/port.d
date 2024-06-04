@@ -1,7 +1,7 @@
 hzu_sentry_a\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F/port.c
 hzu_sentry_a\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-hzu_sentry_a\port.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-hzu_sentry_a\port.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+hzu_sentry_a\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hzu_sentry_a\port.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 hzu_sentry_a\port.o: ../Core/Inc/FreeRTOSConfig.h
 hzu_sentry_a\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 hzu_sentry_a\port.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h

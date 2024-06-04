@@ -333,47 +333,29 @@ void get_rotate_value(chassis_control_data_t *chassis, chassis_pid_t *chassis_pi
 		chassis_pid->rotate_pid.Calc(&chassis_pid->rotate_pid);
 		
 		chassis->rotate = chassis_pid->rotate_pid.output;//由负修改为正   6.25
-		//chassis->rotate_buff_flag = 0;
+		chassis->rotate_buff_flag = 0;
 
 	}
 	else if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_ROTATE_MOTION_MODE)   //变速运动小陀螺    
 	{
 		
-if(RC_abs(chassis->yaw_motor_msg->encoder.raw_value - yaw_raw)>delta_yaw)
-		{
-		chassis->rotate_buff_flag=1;
-		yaw_raw=chassis->yaw_motor_msg->encoder.raw_value;
-		}
-		if(chassis->rotate_buff_flag|first_rotate==1)      
+		if(freertos_run_time % 500 == 0)      
         {
-			 srand(xTaskGetTickCount());
-				chassis->rotate = (rand() % (ROTATE_BASE_SPEED+100) + ROTATE_BASE_SPEED);
-				chassis->rotate_buff_flag = 0;
-				first_rotate=0;
-				}
+			srand(xTaskGetTickCount());
+			//czh
+			chassis->rotate = rand() % CHASSIS_ROTATE_BUFF_SPEED + CHASSIS_ROTATE_BASE_SPEED;// 尽可能调快才不被打到
+			chassis->rotate_buff_flag = 1;
+		}
+	 if(chassis->rotate_buff_flag != 1)     //空档期默认为基础速度       
+	 {
+	 	chassis->rotate = 500u;	//CHASSIS_ROTATE_STOP_SPEED（1000） CHASSIS_ROTATE_BASE_SPEED（600）
+	 }
 				
 	}
 else if(chassis->connect->can2_rc_ctrl.work_mode == ROBOT_ROTATE_STOP_MODE)	//静止小陀螺
 	{
-		rotate_num++;		//定时换旋转方向
-		if(rotate_num>20000)
-		{
-		rotate_tend=-rotate_tend;
-		rotate_num=0;	
-		}
-		
-if(RC_abs(chassis->yaw_motor_msg->encoder.raw_value - yaw_raw)>delta_yaw)
-		{
-		chassis->rotate_buff_flag=1;
-		yaw_raw=chassis->yaw_motor_msg->encoder.raw_value;
-		}
-		if(chassis->rotate_buff_flag|first_rotate==1)      
-        {
-			 srand(xTaskGetTickCount());
-				chassis->rotate = (rand() % (ROTATE_BASE_SPEED+100) + ROTATE_BASE_SPEED)*rotate_tend;
-				chassis->rotate_buff_flag = 0;
-				first_rotate=0;
-				}
+		chassis->rotate = CHASSIS_ROTATE_STOP_SPEED;//1500u 尽可能调快才不被打到
+		chassis->rotate_buff_flag = 0;
 	}
 	else 
 	{
@@ -497,6 +479,7 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 			get_forward_back_value(chassis);//获取控制值，再使用下面函数做转换
 			rotate_motion_mode_process(chassis);//运动小陀螺解算
 			get_rotate_value(chassis, chassis_pid);
+			chassis->rotate_set = chassis->rotate;
 			}
 			
 		}break;

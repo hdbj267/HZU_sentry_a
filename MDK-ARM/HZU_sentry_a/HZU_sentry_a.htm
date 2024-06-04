@@ -3,7 +3,7 @@
 <title>Static Call Graph - [HZU_sentry_a\HZU_sentry_a.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image HZU_sentry_a\HZU_sentry_a.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Sun Apr 28 21:46:42 2024
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 5060960: Last Updated: Tue Jun 04 20:48:40 2024
 <BR><P>
 <H3>Maximum Stack Usage =        336 bytes + Unknown(Functions without stacksize, Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -596,6 +596,7 @@ Global Symbols
 </UL>
 <BR>[Called By]<UL><LI><a href="#[ee]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_RCC_GetSysClockFreq
 <LI><a href="#[112]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;UART_SetConfig
+<LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_rotate_value
 </UL>
 
 <P><STRONG><a name="[22d]"></a>_ll_udiv</STRONG> (Thumb, 238 bytes, Stack size 48 bytes, lludivv7m.o(.text), UNUSED)
@@ -1745,8 +1746,7 @@ Global Symbols
 <BR>[Address Reference Count : 1]<UL><LI> chassis_task.o(i.chassis_pid_init)
 </UL>
 <P><STRONG><a name="[172]"></a>RC_abs</STRONG> (Thumb, 16 bytes, Stack size 0 bytes, chassis_task.o(i.RC_abs))
-<BR><BR>[Called By]<UL><LI><a href="#[17e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_rotate_value
-<LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_forward_back_value
+<BR><BR>[Called By]<UL><LI><a href="#[17d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_forward_back_value
 <LI><a href="#[171]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_forwardfeed
 </UL>
 
@@ -2160,7 +2160,7 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[174]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_init
 </UL>
 
-<P><STRONG><a name="[17c]"></a>chassis_set_and_fdb_update</STRONG> (Thumb, 706 bytes, Stack size 16 bytes, chassis_task.o(i.chassis_set_and_fdb_update))
+<P><STRONG><a name="[17c]"></a>chassis_set_and_fdb_update</STRONG> (Thumb, 710 bytes, Stack size 16 bytes, chassis_task.o(i.chassis_set_and_fdb_update))
 <BR><BR>[Stack]<UL><LI>Max Depth = 272<LI>Call Chain = chassis_set_and_fdb_update &rArr; rotate_motion_mode_process &rArr; __hardfp_sin &rArr; __ieee754_rem_pio2 &rArr; __aeabi_dmul
 </UL>
 <BR>[Calls]<UL><LI><a href="#[134]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;HAL_GPIO_WritePin
@@ -2356,13 +2356,13 @@ Global Symbols
 <BR><BR>[Called By]<UL><LI><a href="#[119]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;process_judge_message
 </UL>
 
-<P><STRONG><a name="[17e]"></a>get_rotate_value</STRONG> (Thumb, 414 bytes, Stack size 16 bytes, chassis_task.o(i.get_rotate_value))
-<BR><BR>[Stack]<UL><LI>Max Depth = 24<LI>Call Chain = get_rotate_value &rArr; srand
+<P><STRONG><a name="[17e]"></a>get_rotate_value</STRONG> (Thumb, 236 bytes, Stack size 16 bytes, chassis_task.o(i.get_rotate_value))
+<BR><BR>[Stack]<UL><LI>Max Depth = 64<LI>Call Chain = get_rotate_value &rArr; __aeabi_uldivmod
 </UL>
 <BR>[Calls]<UL><LI><a href="#[180]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;xTaskGetTickCount
-<LI><a href="#[172]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;RC_abs
 <LI><a href="#[9c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;srand
 <LI><a href="#[190]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;rand
+<LI><a href="#[f0]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
 </UL>
 <BR>[Called By]<UL><LI><a href="#[17c]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;chassis_set_and_fdb_update
 </UL>

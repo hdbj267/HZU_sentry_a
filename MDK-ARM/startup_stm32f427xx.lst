@@ -874,11 +874,11 @@ ARM Macro Assembler    Page 14
               00000000 
 Command Line: --debug --xref --diag_suppress=9931 --cpu=Cortex-M4.fp.sp --apcs=
 interwork --depend=hzu_sentry_a\startup_stm32f427xx.d -ohzu_sentry_a\startup_st
-m32f427xx.o -I..\Core\Inc -I../Core/Inc -I.\RTE\_HZU_sentry_a -ID:\keil5\ARM\PA
-CK\ARM\CMSIS\5.7.0\CMSIS\Core\Include -ID:\keil5\ARM\PACK\Keil\STM32F4xx_DFP\2.
-16.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="__UVISION_VERSION S
-ETA 534" --predefine="_RTE_ SETA 1" --predefine="STM32F427xx SETA 1" --predefin
-e="_RTE_ SETA 1" --list=startup_stm32f427xx.lst startup_stm32f427xx.s
+m32f427xx.o -I..\Core\Inc -I../Core/Inc -I.\RTE\_HZU_sentry_a -IC:\Keil_v5\ARM\
+PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include -IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DF
+P\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include --predefine="__UVISION_VERSI
+ON SETA 536" --predefine="_RTE_ SETA 1" --predefine="STM32F427xx SETA 1" --pred
+efine="_RTE_ SETA 1" --list=startup_stm32f427xx.lst startup_stm32f427xx.s
 
 
 

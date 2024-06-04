@@ -49,9 +49,9 @@
 #define GAMBAL_ENCODE_TO_ANGLE           ((float)0.0439506775729459)  //  360.0/8191.0
 	
 #define CHASSIS_ROTATE_MOTION_SPEED      (600u)//(300u)               //运动小陀螺的rotate值
-#define CHASSIS_ROTATE_BASE_SPEED        (200)                        //运动小陀螺的rotate值
-#define CHASSIS_ROTATE_BUFF_SPEED        (200)                       //运动小陀螺的rotate值
-#define CHASSIS_ROTATE_STOP_SPEED        (300)                       //静止小陀螺的rotate值	原1000u
+#define CHASSIS_ROTATE_BASE_SPEED        (300)                        //运动小陀螺的rotate值
+#define CHASSIS_ROTATE_BUFF_SPEED        (300)                       //运动小陀螺的rotate值
+#define CHASSIS_ROTATE_STOP_SPEED        (800)                       //静止小陀螺的rotate值	原1000u
 
 #define PI                               (3.14159265358979f)
 

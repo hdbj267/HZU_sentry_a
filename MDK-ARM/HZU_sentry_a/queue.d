@@ -1,9 +1,9 @@
 hzu_sentry_a\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/queue.c
-hzu_sentry_a\queue.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdlib.h
-hzu_sentry_a\queue.o: D:\keil5\ARM\ARMCC\Bin\..\include\string.h
+hzu_sentry_a\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdlib.h
+hzu_sentry_a\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 hzu_sentry_a\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/FreeRTOS.h
-hzu_sentry_a\queue.o: D:\keil5\ARM\ARMCC\Bin\..\include\stddef.h
-hzu_sentry_a\queue.o: D:\keil5\ARM\ARMCC\Bin\..\include\stdint.h
+hzu_sentry_a\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stddef.h
+hzu_sentry_a\queue.o: C:\Keil_v5\ARM\ARMCC\Bin\..\include\stdint.h
 hzu_sentry_a\queue.o: ../Core/Inc/FreeRTOSConfig.h
 hzu_sentry_a\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/projdefs.h
 hzu_sentry_a\queue.o: ../Middlewares/Third_Party/FreeRTOS/Source/include/portable.h
