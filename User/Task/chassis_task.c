@@ -40,7 +40,7 @@ uint8_t rotate_init_flag=1,last_mode,delta_start_flag;
 
 volatile uint16_t T1;
 volatile int tim;
-
+//初始化里程计位置，地图左下角为原点
 car_typedef car=
 {
 	.position_a[0] = 0,
@@ -49,7 +49,7 @@ car_typedef car=
 	.target[0] = 144,
 	.target[1] = 108
 };
-
+//左右，前后 导航速度pid
  pid_t cmd_forward_pid =
 {	
 	.kp = 22.0,  //6.2  //10stable  20
@@ -69,14 +69,8 @@ car_typedef car=
 	.mode = PID_POSITION,			//PID_DELTA	PID_POSITION
 };
 
-//uint32_t RNG_Get_RandomRange(int min,int max)
 
-//{
-
-//return HAL_RNG_GetRandomNumber(&RNG_Handler)%(max-min+1) +min;
-
-//}
-
+//前馈输出，输入为转速，输出为电流值
 float forwardfeed(float in)
 {
 
@@ -343,7 +337,8 @@ void get_rotate_value(chassis_control_data_t *chassis, chassis_pid_t *chassis_pi
         {
 			srand(xTaskGetTickCount());
 			//czh
-			chassis->rotate = rand() % CHASSIS_ROTATE_BUFF_SPEED + CHASSIS_ROTATE_BASE_SPEED;// 尽可能调快才不被打到
+									chassis->rotate = rand() % CHASSIS_ROTATE_BUFF_SPEED + CHASSIS_ROTATE_BASE_SPEED;/* 尽可能调快才不被打到，
+									但是不能超功率，基础速度占比要大一点，变速运动用肉眼看起来不能太明显*/
 			chassis->rotate_buff_flag = 1;
 		}
 	 if(chassis->rotate_buff_flag != 1)     //空档期默认为基础速度       
@@ -405,7 +400,7 @@ void chassis_set_and_fdb_update(chassis_control_data_t *chassis, \
 			
 			
 				if((game_status.game_progress==3)||(game_status.game_progress==4)||(game_status.game_progress==5))/*比赛开始就向左走，
-																																								最好加一个走完开扫描档，不用的话记得删了*/
+																																								要加一个走完开扫描档，不用的话记得删了*/
 	{
 		switch(left_move)
 		{
