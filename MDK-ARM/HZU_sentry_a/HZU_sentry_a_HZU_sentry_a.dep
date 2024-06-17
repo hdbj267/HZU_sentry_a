@@ -2664,7 +2664,7 @@ I (C:\Keil_v5\ARM\ARMCC\include\stdbool.h)(0x6025237C)
 I (C:\Keil_v5\ARM\ARMCC\include\stdlib.h)(0x60252374)
 I (../User/App/rule.h)(0x6631008B)
 I (../Core/Inc/i2c.h)(0x66310089)
-F (.\readme.txt)(0x6631008B)()
+F (..\README.md)(0x666F8FF2)()
 F (..\IMU\bsp_imu.c)(0x6631008B)(--c99 -c --cpu Cortex-M4.fp.sp -g -O0 --apcs=interwork --split_sections -I ../Core/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc -I ../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I ../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I ../Drivers/CMSIS/Include -I ../Middlewares/Third_Party/FreeRTOS/Source/include -I ../Middlewares/Third_Party/FreeRTOS/Source/CMSIS_RTOS_V2 -I ../Middlewares/Third_Party/FreeRTOS/Source/portable/RVDS/ARM_CM4F -I ../Drivers/System -I ../Components/controller -I ../Components/algorithm -I ../Components/algorithm/Include -I ../User/App -I ../User/Task -I ../Components/devices -I ../IMU-I.\RTE\_HZU_sentry_a-IC:\Keil_v5\ARM\PACK\ARM\CMSIS\5.8.0\CMSIS\Core\Include-IC:\Keil_v5\ARM\PACK\Keil\STM32F4xx_DFP\2.13.0\Drivers\CMSIS\Device\ST\STM32F4xx\Include-D__UVISION_VERSION="536" -D_RTE_ -DSTM32F427xx -D_RTE_ -DUSE_HAL_DRIVER -DSTM32F427xx-o hzu_sentry_a\bsp_imu.o --omf_browse hzu_sentry_a\bsp_imu.crf --depend hzu_sentry_a\bsp_imu.d)
 I (..\IMU\bsp_imu.h)(0x6631008B)
 I (..\IMU\mytype.h)(0x6631008B)
